@@ -15,11 +15,8 @@ export default async function handler(req, res) {
   try {
     // 1. Atualizar foto do cliente
     const fotoBase64 = foto.replace(/^data:image\/\w+;base64,/, '');
-    const urlFoto = `${BASE_URL}/cliente/atualizarFotoCliente`;
-
-    const bodyParams = new URLSearchParams();
-    bodyParams.append('codigopessoa', pessoa);
-    bodyParams.append('foto', fotoBase64);
+    // codigopessoa DEVE ser query param, foto vai no body
+    const urlFoto = `${BASE_URL}/cliente/atualizarFotoCliente?codigopessoa=${pessoa}`;
 
     const respFoto = await fetch(urlFoto, {
       method: 'POST',
@@ -28,7 +25,7 @@ export default async function handler(req, res) {
         'empresaId': EMPRESA_ID,
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: bodyParams.toString()
+      body: 'foto=' + encodeURIComponent(fotoBase64)
     });
 
     let dataFoto;
@@ -44,8 +41,8 @@ export default async function handler(req, res) {
       }
     }
 
-    if (dataFoto.erro) {
-      return res.status(500).json({ erro: 'Erro ao salvar foto: ' + dataFoto.erro });
+    if (dataFoto.erro || (dataFoto.return && dataFoto.return.startsWith('ERRO'))) {
+      return res.status(500).json({ erro: 'Erro ao salvar foto: ' + (dataFoto.erro || dataFoto.return) });
     }
 
     // 2. Atualizar template facial
