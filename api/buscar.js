@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
     const resp = await fetch(url, {
       headers: {
-        'api_key': API_KEY,
+        'Authorization': 'Bearer ' + API_KEY,
         'empresaId': EMPRESA_ID
       }
     });

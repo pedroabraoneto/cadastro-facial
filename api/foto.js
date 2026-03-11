@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     const respFoto = await fetch(urlFoto, {
       method: 'POST',
       headers: {
-        'api_key': API_KEY,
+        'Authorization': 'Bearer ' + API_KEY,
         'empresaId': EMPRESA_ID,
         'Content-Type': 'application/x-www-form-urlencoded'
       }
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
     const respTemplate = await fetch(urlTemplate, {
       method: 'POST',
       headers: {
-        'api_key': API_KEY,
+        'Authorization': 'Bearer ' + API_KEY,
         'empresaId': EMPRESA_ID,
         'Content-Type': 'application/json'
       },
