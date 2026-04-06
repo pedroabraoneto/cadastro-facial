@@ -24,38 +24,27 @@
     }
     .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 1px; }
     .header p { font-size: 13px; color: #8ab4f8; margin-top: 4px; }
-    .container {
-      width: 100%;
-      max-width: 420px;
-      padding: 20px;
-      flex: 1;
-    }
-
-    /* Etapas */
+    .container { width: 100%; max-width: 420px; padding: 20px; flex: 1; }
     .step { display: none; animation: fadeIn 0.3s ease; }
     .step.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* CPF Input */
-    .input-group { margin-top: 30px; }
-    .input-group label { display: block; font-size: 14px; color: #8ab4f8; margin-bottom: 8px; }
-    .input-group input {
+    .input-group { margin-top: 16px; }
+    .input-group label { display: block; font-size: 13px; color: #8ab4f8; margin-bottom: 6px; }
+    .input-group input, .input-group select {
       width: 100%;
-      padding: 16px;
-      font-size: 22px;
-      text-align: center;
+      padding: 14px;
+      font-size: 16px;
       border: 2px solid #2a4a6b;
       border-radius: 12px;
       background: #0d2240;
       color: #fff;
-      letter-spacing: 2px;
       outline: none;
       transition: border-color 0.3s;
     }
-    .input-group input:focus { border-color: #2196F3; }
-    .input-group input::placeholder { color: #4a6a8a; font-size: 16px; letter-spacing: 0; }
-
-    /* Botoes */
+    .input-group input:focus, .input-group select:focus { border-color: #2196F3; }
+    .input-group input::placeholder { color: #4a6a8a; font-size: 14px; }
+    .input-group.cpf-input input { font-size: 22px; text-align: center; letter-spacing: 2px; }
+    .input-group select option { background: #0d2240; }
     .btn {
       width: 100%;
       padding: 16px;
@@ -71,12 +60,8 @@
     .btn-primary:hover { background: #1976D2; }
     .btn-primary:disabled { background: #1a3a5c; color: #4a6a8a; cursor: not-allowed; }
     .btn-success { background: #4CAF50; color: #fff; }
-    .btn-success:hover { background: #388E3C; }
     .btn-outline { background: transparent; border: 2px solid #2a4a6b; color: #8ab4f8; }
     .btn-outline:hover { border-color: #2196F3; color: #2196F3; }
-    .btn-danger { background: #f44336; color: #fff; }
-
-    /* Card do cliente */
     .client-card {
       background: #112240;
       border: 1px solid #2a4a6b;
@@ -86,114 +71,56 @@
       text-align: center;
     }
     .client-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #2196F3;
-      margin-bottom: 12px;
+      width: 80px; height: 80px; border-radius: 50%;
+      object-fit: cover; border: 3px solid #2196F3; margin-bottom: 12px;
     }
     .client-card .name { font-size: 18px; font-weight: 600; }
     .client-card .matricula { font-size: 13px; color: #8ab4f8; margin-top: 4px; }
     .client-card .status {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 8px;
+      display: inline-block; padding: 4px 12px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; margin-top: 8px;
     }
     .status-at { background: #1b5e20; color: #a5d6a7; }
+    .status-vi { background: #e65100; color: #ffcc80; }
     .status-in { background: #b71c1c; color: #ef9a9a; }
-
-    /* Camera */
     .camera-wrapper {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 3/4;
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 16px;
-      background: #000;
+      position: relative; width: 100%; aspect-ratio: 3/4;
+      border-radius: 16px; overflow: hidden; margin-top: 16px; background: #000;
     }
-    .camera-wrapper video, .camera-wrapper canvas {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .camera-wrapper video, .camera-wrapper canvas { width: 100%; height: 100%; object-fit: cover; }
     .camera-wrapper canvas { display: none; }
     .face-guide {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -55%);
-      width: 200px;
-      height: 260px;
-      border: 3px dashed rgba(33, 150, 243, 0.6);
-      border-radius: 50%;
-      pointer-events: none;
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%);
+      width: 200px; height: 260px; border: 3px dashed rgba(33, 150, 243, 0.6);
+      border-radius: 50%; pointer-events: none;
     }
     .face-guide-text {
-      position: absolute;
-      bottom: 16px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-size: 13px;
-      color: #8ab4f8;
-      pointer-events: none;
+      position: absolute; bottom: 16px; left: 0; right: 0;
+      text-align: center; font-size: 13px; color: #8ab4f8; pointer-events: none;
     }
-
-    /* Preview */
     .preview-img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      border-radius: 16px;
-      object-fit: cover;
-      margin-top: 16px;
+      width: 100%; aspect-ratio: 3/4; border-radius: 16px;
+      object-fit: cover; margin-top: 16px;
     }
-
-    /* Loading */
     .loading { text-align: center; padding: 40px 0; }
     .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid #2a4a6b;
-      border-top-color: #2196F3;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 16px;
+      width: 40px; height: 40px; border: 4px solid #2a4a6b;
+      border-top-color: #2196F3; border-radius: 50%;
+      animation: spin 0.8s linear infinite; margin: 0 auto 16px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* Resultado */
     .result-icon { font-size: 60px; text-align: center; margin: 20px 0; }
     .result-text { text-align: center; font-size: 16px; line-height: 1.6; }
-
-    /* Erro */
     .error-msg {
-      background: #1a0000;
-      border: 1px solid #f44336;
-      border-radius: 8px;
-      padding: 12px;
-      margin-top: 12px;
-      font-size: 13px;
-      color: #ef9a9a;
-      text-align: center;
+      background: #1a0000; border: 1px solid #f44336; border-radius: 8px;
+      padding: 12px; margin-top: 12px; font-size: 13px; color: #ef9a9a; text-align: center;
     }
-
-    .step-indicator {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 20px;
+    .info-msg {
+      background: #0d2240; border: 1px solid #2196F3; border-radius: 8px;
+      padding: 12px; margin-top: 12px; font-size: 13px; color: #8ab4f8; text-align: center;
     }
-    .step-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #2a4a6b;
-    }
+    .step-indicator { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+    .step-dot { width: 8px; height: 8px; border-radius: 50%; background: #2a4a6b; }
     .step-dot.active { background: #2196F3; width: 24px; border-radius: 4px; }
   </style>
 </head>
@@ -204,7 +131,6 @@
   </div>
 
   <div class="container">
-    <!-- Indicador de etapas -->
     <div class="step-indicator">
       <div class="step-dot active" id="dot1"></div>
       <div class="step-dot" id="dot2"></div>
@@ -213,12 +139,44 @@
 
     <!-- ETAPA 1: CPF -->
     <div class="step active" id="step-cpf">
-      <div class="input-group">
+      <div class="input-group cpf-input">
         <label>Digite seu CPF</label>
         <input type="tel" id="cpf" placeholder="000.000.000-00" maxlength="14" autocomplete="off" inputmode="numeric">
       </div>
       <div id="cpf-error" class="error-msg" style="display:none"></div>
       <button class="btn btn-primary" id="btn-buscar" disabled onclick="buscarCliente()">Buscar</button>
+    </div>
+
+    <!-- ETAPA 1B: Formulario de dados (novo cliente) -->
+    <div class="step" id="step-dados">
+      <div class="info-msg" id="dados-info">CPF nao encontrado. Preencha seus dados para cadastro:</div>
+      <div class="input-group">
+        <label>Nome completo *</label>
+        <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name">
+      </div>
+      <div class="input-group">
+        <label>Telefone celular *</label>
+        <input type="tel" id="telefone" placeholder="(62) 99999-9999" maxlength="15" inputmode="tel">
+      </div>
+      <div class="input-group">
+        <label>Data de nascimento *</label>
+        <input type="tel" id="dataNasc" placeholder="DD/MM/AAAA" maxlength="10" inputmode="numeric">
+      </div>
+      <div class="input-group">
+        <label>Sexo *</label>
+        <select id="sexo">
+          <option value="">Selecione</option>
+          <option value="F">Feminino</option>
+          <option value="M">Masculino</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>E-mail (opcional)</label>
+        <input type="email" id="email" placeholder="seu@email.com" autocomplete="email">
+      </div>
+      <div id="dados-error" class="error-msg" style="display:none"></div>
+      <button class="btn btn-primary" id="btn-salvar-dados" onclick="salvarDados()">Salvar e Continuar</button>
+      <button class="btn btn-outline" onclick="voltarCPF()" style="margin-top:8px">Voltar</button>
     </div>
 
     <!-- ETAPA 2: Confirmar + Camera -->
@@ -242,7 +200,7 @@
     <div class="step" id="step-loading">
       <div class="loading">
         <div class="spinner"></div>
-        <p>Enviando sua foto...</p>
+        <p id="loading-text">Enviando sua foto...</p>
         <p style="font-size:13px; color:#8ab4f8; margin-top:8px">Isso pode levar alguns segundos</p>
       </div>
     </div>
@@ -272,11 +230,12 @@
     let clienteData = null;
     let fotoBase64 = null;
     let stream = null;
+    let cpfAtual = '';
 
-    // Mascara CPF
     const cpfInput = document.getElementById('cpf');
     const btnBuscar = document.getElementById('btn-buscar');
 
+    // Mascara CPF
     cpfInput.addEventListener('input', function(e) {
       let v = e.target.value.replace(/\D/g, '');
       if (v.length > 11) v = v.slice(0, 11);
@@ -292,17 +251,37 @@
       if (e.key === 'Enter' && !btnBuscar.disabled) buscarCliente();
     });
 
+    // Mascara telefone
+    document.getElementById('telefone').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      else if (v.length > 0) v = '(' + v;
+      e.target.value = v;
+    });
+
+    // Mascara data nascimento
+    document.getElementById('dataNasc').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 8) v = v.slice(0, 8);
+      if (v.length > 4) v = v.slice(0,2) + '/' + v.slice(2,4) + '/' + v.slice(4);
+      else if (v.length > 2) v = v.slice(0,2) + '/' + v.slice(2);
+      e.target.value = v;
+    });
+
     function showStep(name) {
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
       document.getElementById('step-' + name).classList.add('active');
-      const dots = { cpf: 1, camera: 2, loading: 3, sucesso: 3, erro: 3 };
+      const dots = { cpf: 1, dados: 1, camera: 2, loading: 3, sucesso: 3, erro: 3 };
       document.querySelectorAll('.step-dot').forEach((d, i) => {
-        d.classList.toggle('active', i < dots[name]);
+        d.classList.toggle('active', i < (dots[name] || 1));
       });
     }
 
     async function buscarCliente() {
       const cpf = cpfInput.value.replace(/\D/g, '');
+      cpfAtual = cpf;
       btnBuscar.disabled = true;
       btnBuscar.textContent = 'Buscando...';
       document.getElementById('cpf-error').style.display = 'none';
@@ -311,9 +290,15 @@
         const resp = await fetch('/api/buscar?cpf=' + cpf);
         const data = await resp.json();
 
-        if (!resp.ok) {
-          throw new Error(data.erro || 'Cliente nao encontrado');
+        if (resp.status === 404 || data.existe === false) {
+          // CPF nao encontrado — mostrar formulario de dados
+          showStep('dados');
+          document.getElementById('dados-info').textContent = 'CPF nao encontrado. Preencha seus dados para cadastro:';
+          document.getElementById('nome').focus();
+          return;
         }
+
+        if (!resp.ok) throw new Error(data.erro || 'Erro ao buscar');
 
         clienteData = data;
         renderClientCard(data);
@@ -328,16 +313,65 @@
       }
     }
 
+    async function salvarDados() {
+      const nome = document.getElementById('nome').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const dataNasc = document.getElementById('dataNasc').value.trim();
+      const sexo = document.getElementById('sexo').value;
+      const email = document.getElementById('email').value.trim();
+      const errorEl = document.getElementById('dados-error');
+
+      if (!nome) { errorEl.textContent = 'Preencha o nome'; errorEl.style.display = 'block'; return; }
+      if (!telefone || telefone.replace(/\D/g, '').length < 10) { errorEl.textContent = 'Preencha o telefone'; errorEl.style.display = 'block'; return; }
+      if (!dataNasc || dataNasc.length < 10) { errorEl.textContent = 'Preencha a data de nascimento'; errorEl.style.display = 'block'; return; }
+      if (!sexo) { errorEl.textContent = 'Selecione o sexo'; errorEl.style.display = 'block'; return; }
+      errorEl.style.display = 'none';
+
+      const btn = document.getElementById('btn-salvar-dados');
+      btn.disabled = true;
+      btn.textContent = 'Salvando...';
+
+      try {
+        const resp = await fetch('/api/buscar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            cpf: cpfAtual,
+            nome,
+            telefone: telefone.replace(/\D/g, ''),
+            dataNascimento: dataNasc,
+            sexo,
+            email
+          })
+        });
+
+        const data = await resp.json();
+        if (data.erro) throw new Error(data.erro);
+
+        clienteData = data;
+        renderClientCard(data);
+        showStep('camera');
+      } catch (err) {
+        errorEl.textContent = err.message;
+        errorEl.style.display = 'block';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Salvar e Continuar';
+      }
+    }
+
     function renderClientCard(data) {
       const foto = data.urlFoto || 'https://cdn1.pactorian.net/fotoPadrao.jpg';
-      const situacaoClass = data.situacao === 'AT' ? 'status-at' : 'status-in';
-      const situacaoText = data.situacao === 'AT' ? 'Ativo' : (data.situacao === 'IN' ? 'Inativo' : data.situacao);
+      const sitMap = { AT: ['Ativo', 'status-at'], VI: ['Visitante', 'status-vi'], IN: ['Inativo', 'status-in'] };
+      const [sitText, sitClass] = sitMap[data.situacao] || [data.situacao, 'status-vi'];
 
       document.getElementById('client-card').innerHTML = `
         <img src="${foto}" alt="Foto" onerror="this.src='https://cdn1.pactorian.net/fotoPadrao.jpg'">
         <div class="name">${data.nome}</div>
         <div class="matricula">Matricula: ${data.matricula}</div>
-        <div class="status ${situacaoClass}">${situacaoText}</div>
+        <div class="status ${sitClass}">${sitText}</div>
+        ${data.criado ? '<div style="color:#4CAF50;font-size:13px;margin-top:8px">Cadastro criado com sucesso!</div>' : ''}
+        ${data.atualizado ? '<div style="color:#2196F3;font-size:13px;margin-top:8px">Dados atualizados!</div>' : ''}
       `;
     }
 
@@ -347,8 +381,7 @@
           video: { facingMode: 'user', width: { ideal: 720 }, height: { ideal: 960 } },
           audio: false
         });
-        const video = document.getElementById('video');
-        video.srcObject = stream;
+        document.getElementById('video').srcObject = stream;
         document.getElementById('camera-wrapper').style.display = 'block';
         document.getElementById('btn-abrir-camera').style.display = 'none';
         document.getElementById('btn-capturar').style.display = 'block';
@@ -362,19 +395,13 @@
       const canvas = document.getElementById('canvas');
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(video, 0, 0);
+      canvas.getContext('2d').drawImage(video, 0, 0);
       fotoBase64 = canvas.toDataURL('image/jpeg', 0.85);
-
-      // Parar camera
       if (stream) stream.getTracks().forEach(t => t.stop());
-
-      // Mostrar preview
       document.getElementById('camera-wrapper').style.display = 'none';
       const preview = document.getElementById('preview');
       preview.src = fotoBase64;
       preview.style.display = 'block';
-
       document.getElementById('btn-capturar').style.display = 'none';
       document.getElementById('btn-enviar').style.display = 'block';
       document.getElementById('btn-refazer').style.display = 'block';
@@ -390,23 +417,14 @@
 
     async function enviarFoto() {
       showStep('loading');
-
       try {
         const resp = await fetch('/api/foto', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            pessoa: clienteData.pessoa,
-            foto: fotoBase64
-          })
+          body: JSON.stringify({ pessoa: clienteData.pessoa, foto: fotoBase64 })
         });
-
         const data = await resp.json();
-
-        if (!resp.ok || data.erro) {
-          throw new Error(data.erro || 'Erro ao enviar foto');
-        }
-
+        if (!resp.ok || data.erro) throw new Error(data.erro || 'Erro ao enviar foto');
         showStep('sucesso');
       } catch (err) {
         document.getElementById('erro-detalhe').textContent = err.message;
@@ -428,12 +446,17 @@
     function reiniciar() {
       clienteData = null;
       fotoBase64 = null;
+      cpfAtual = '';
       cpfInput.value = '';
       btnBuscar.disabled = true;
+      document.getElementById('nome').value = '';
+      document.getElementById('telefone').value = '';
+      document.getElementById('dataNasc').value = '';
+      document.getElementById('sexo').value = '';
+      document.getElementById('email').value = '';
       voltarCPF();
     }
 
-    // Focus no input ao carregar
     cpfInput.focus();
   </script>
 </body>
